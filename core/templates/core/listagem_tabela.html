@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Listagem de Tabela
+{% endblock %}
+
+{% block main %}
+<h3>Listagem de Preços</h3><br>
+{% for i in dados %}
+Valor: {{ i.valor }}<br>
+Descrição: {{ i.descricao }}<br>
+
+<a href="{% url 'url_atualiza_tabela' i.id %}">Editar</a>
+<a href="{% url 'url_exclui_tabela' i.id %}">Excluir</a>
+<br>
+-----------------------------------------------------------<br>
+{% endfor %}
+<button onclick="window.location.href='/'">home</button>
+{% endblock %}

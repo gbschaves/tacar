@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Listagem de Rotativos
+{% endblock %}
+
+{% block main %}
+<h3>Listagem de Rotativos</h3><br>
+{% for i in dados %}
+data_hora_entrada: {{ i.data_hora_entrada }}<br>
+data_hora_saida: {{ i.data_hora_saida }}<br>
+id_veiculo: {{ i.id_veiculo }}<br>
+id_tabela: {{ i.id_tabela }}<br>
+pago: {% if i.pago %}
+Sim
+{% else %}
+Não
+{% endif %} <br>
+total: {{ i.total }}<br>
+observacoes: {{ i.observacoes }}<br>
+
+<a href="{% url 'url_atualiza_rotativo' i.id %}">Editar</a>
+<a href="{% url 'url_exclui_rotativo' i.id %}">Excluir</a>
+<br>
+-----------------------------------------------------------<br>
+{% endfor %}
+<button onclick="window.location.href='/'">home</button>
+{% endblock %}

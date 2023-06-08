@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+venv
+.env
+tacar/.env
+db.sqlite3
+.idea
